@@ -1,0 +1,15 @@
+version: '3'
+services:
+  api:
+    build:
+      context: .
+      dockerfile: ./api/Dockerfile
+    restart: always
+    container_name: api
+    volumes:
+      - ./.env:/opt/app/.env
+    networks:
+      - myNetwork
+networks:
+  myNetwork:
+    driver: bridge
